@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
 
 from .models import Cheese
@@ -11,7 +12,8 @@ class CheeseDetailView(DetailView):
     model = Cheese
 
 
-class CheeseCreateView(CreateView):
+#LoginRequired on left for reasons of 'method resolution order'
+class CheeseCreateView(LoginRequiredMixin, CreateView):
     model = Cheese
     fields = [
         "name",
