@@ -15,4 +15,8 @@
         <p>Country of Origin: {{ cheese.country_of_origin }}</p>
         <img src="{{ cheese.country_of_origin.flag }}" alt="">
     {% endif %}
+
+    <h3>Submitted by:
+        <a href="{% url 'users:detail' cheese.creator.username %}">{{ cheese.creator.username }}</a>
+    </h3>
 {% endblock content %}
