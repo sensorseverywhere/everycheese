@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 {% load static %}
 
 {% block title %}Add Cheese{% endblock title %}
@@ -6,7 +8,7 @@
 {% block content %}
     <h1>Add Cheese</h1>
     <form method='POST' action="{% url 'cheeses:add' %}">
-        {{ form.as_p }}
+        {{ form|crispy }}
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
